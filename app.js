@@ -16,7 +16,10 @@ app.use(cors());
 mongoose.set("debug", true)
 mongoose.connect(process.env.MONGODB, {useNewUrlParser: true})
 const jobSchema = new mongoose.Schema({
-    title: String
+    title: String,
+    jobDescription: String,
+    pay: String,
+    area: String
 })
 const Job = mongoose.model("Job", jobSchema)
 
@@ -70,6 +73,10 @@ app.delete("/api/jobs/:jobId", (req,res) =>{
     .catch(function(err) {
       res.send(err);
     });
+})
+
+app.get('/*', (req, res )=>{
+    res.send('Invalid URL!')
 })
 
 
