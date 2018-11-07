@@ -66,7 +66,7 @@ app.put("/api/jobs/:jobId", (req,res)=> {
         });
 })
 app.delete("/api/jobs/:jobId", (req,res) =>{
-    Job.remove({ _id: req.params.JobId })
+    Job.remove({ _id: req.params.jobId })
     .then(function() {
       res.json({ message: "deleted" });
     })
